@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming, FadeIn } from 'react-native-reanimated';
 import imgs from '@/constants/images';
+import { router } from 'expo-router';
 
 
 const index = () => {
@@ -106,7 +107,7 @@ const index = () => {
                         <Text className='text-black font-bold text-lg' >ExoQuest.</Text>
                     </ImageBackground>
                 </Animated.View>
-                <Image
+                <Animated.Image
                     source={imgs.start_boy}
                 />
             </View>
@@ -114,6 +115,7 @@ const index = () => {
 
             <TouchableOpacity
                 className='self-center bg-[#FF8403] px-4 py-2 rounded-lg shadow-lg shadow-slate-500'
+                onPress={() => router.push("/fastFact")}
             >
                 <Text
                     className='font-bold text-zinc-950 text-2xl text-center'

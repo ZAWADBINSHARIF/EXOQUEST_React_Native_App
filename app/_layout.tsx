@@ -1,10 +1,8 @@
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { router, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -17,6 +15,8 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
+      // router.push("/fastFact");
+
     }
   }, [loaded]);
 
@@ -27,10 +27,13 @@ export default function RootLayout() {
   return (
     <Stack
       screenOptions={{
-        'headerShown': false
+        'headerShown': false,
+        'animation': 'none'
       }}
     >
       <Stack.Screen name="index" />
+      <Stack.Screen name="fastFact" />
+      <Stack.Screen name="web" />
     </Stack>
   );
 }
