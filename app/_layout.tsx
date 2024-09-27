@@ -15,7 +15,7 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
-      // router.push("/fastFact");
+      router.push("/fastFact");
 
     }
   }, [loaded]);
@@ -34,6 +34,7 @@ export default function RootLayout() {
       <Stack.Screen name="index" />
       <Stack.Screen name="fastFact" />
       <Stack.Screen name="web" />
+      <Stack.Screen name="characterPick" />
     </Stack>
   );
 }

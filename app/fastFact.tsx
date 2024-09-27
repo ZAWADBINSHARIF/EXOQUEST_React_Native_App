@@ -1,8 +1,10 @@
-import { View, Text, Image, useWindowDimensions, ImageBackground } from 'react-native';
+import { View, Text, Image, useWindowDimensions, ImageBackground, TouchableOpacity } from 'react-native';
 import React, { useEffect } from 'react';
 import imgs from '@/constants/images';
 import Animated, { FadeIn, useAnimatedStyle, useSharedValue, withDelay, withSpring, withTiming } from 'react-native-reanimated';
 import BackButton from '@/components/BackButton';
+import { Entypo } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 
 const fastFact = () => {
@@ -64,6 +66,53 @@ const fastFact = () => {
                 className='h-full w-full absolute'
             />
 
+            <View
+                className='flex-1 items-center overflow-hidden justify-around'
+            >
+                <View className='bg-white/10 w-96 rounded-3xl pb-3'>
+
+                    <Text className='text-xl text-center text-orange-300 underline pb-3'>Fast facts</Text>
+
+                    <View className='gap-1 justify-center px-7 w-full'>
+
+                        <View className='flex-row'>
+                            <Entypo name="dot-single" size={24} color="white" />
+                            <Text className='font-bold text-white text-lg'>An exoplanet is any planet beyond our solar system.</Text>
+                        </View>
+
+                        <View className='flex-row'>
+                            <Entypo name="dot-single" size={24} color="white" />
+                            <Text className='font-bold text-white text-lg'>Name of the first exoplanet is “51 Pegasi b”.</Text>
+                        </View>
+
+                        <View className='flex-row'>
+                            <Entypo name="dot-single" size={24} color="white" />
+                            <View>
+                                <Text className='font-bold text-white text-lg' >Invented by Michel Mayor and Didier Queloz. For this discovery, they were awarded the 2019 Nobel Prize in Physics.</Text>
+                            </View>
+                        </View>
+
+                        <View className='flex-row'>
+                            <Entypo name="dot-single" size={24} color="white" />
+                            <Text className='font-bold text-white text-lg'>This discovery made at Haute-Provence Observatory.</Text>
+                        </View>
+
+                    </View>
+
+                </View>
+
+                <View>
+                    <TouchableOpacity
+                        className='bg-[#FF8403] px-4 py-2 rounded-lg shadow-lg shadow-slate-500 flex-row justify-center items-center'
+                        onPress={() => router.push("/characterPick")}
+                    >
+                        <Text className='font-bold text-zinc-950 text-2xl text-center mx-2'>NEXT</Text>
+                        <Entypo name="chevron-with-circle-right" size={24} color="black" />
+                    </TouchableOpacity>
+                </View>
+
+            </View>
+
             <Image
                 source={imgs.planet_01}
                 className='absolute bottom-20 right-0'
@@ -71,7 +120,7 @@ const fastFact = () => {
 
             <Animated.View
                 style={animationViewStyle}
-                className='absolute justify-end flex-row-reverse items-center'
+                className='absolute justify-end flex-row-reverse items-end'
             >
                 <Animated.View entering={FadeIn.springify().stiffness(100).damping(30)}>
                     <ImageBackground
