@@ -1,4 +1,4 @@
-import { useFonts } from 'expo-font';
+import { useFonts } from '@expo-google-fonts/inter';
 import { router, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
@@ -10,12 +10,13 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpicyRice: require('../assets/fonts/SpicyRice-Regular.ttf')
   });
 
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
-      router.push("/fastFact");
+      router.push("/characterPick");
 
     }
   }, [loaded]);
