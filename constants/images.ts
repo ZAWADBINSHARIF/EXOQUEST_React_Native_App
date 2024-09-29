@@ -4,7 +4,8 @@ const imgs = {
     exterior_galaxy: require('@/assets/imgs/exterior_galaxy.jpg'),
     planet_01: require("@/assets/imgs/planet_01.png"),
     boy_frame: require("@/assets/imgs/boy_frame.png"),
-    girl_frame: require("@/assets/imgs/girl_frame.png")
+    girl_frame: require("@/assets/imgs/girl_frame.png"),
+    sky_bg: require("@/assets/imgs/sky_bg.png")
 
 };
 

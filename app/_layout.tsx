@@ -1,3 +1,4 @@
+import GlobalValueProvider from '@/context/GlobalValueProvider';
 import { useFonts } from '@expo-google-fonts/inter';
 import { router, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -16,7 +17,7 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
-      router.push("/characterPick");
+      // router.push("(menu)");
 
     }
   }, [loaded]);
@@ -25,6 +26,15 @@ export default function RootLayout() {
     return null;
   }
 
+  return (
+    <GlobalValueProvider>
+      <RootLayoutNav />
+    </GlobalValueProvider>
+  );
+}
+
+
+function RootLayoutNav() {
   return (
     <Stack
       screenOptions={{
@@ -36,6 +46,7 @@ export default function RootLayout() {
       <Stack.Screen name="fastFact" />
       <Stack.Screen name="web" />
       <Stack.Screen name="characterPick" />
+      <Stack.Screen name='(menu)' />
     </Stack>
   );
 }
