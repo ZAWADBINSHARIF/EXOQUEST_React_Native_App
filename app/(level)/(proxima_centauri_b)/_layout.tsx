@@ -5,11 +5,12 @@ export default function layout() {
     return (
         <Stack
             screenOptions={{
-                headerShown: false
+                headerShown: false,
+                animation: 'none'
             }}
         >
             <Stack.Screen name='index' />
-            <Stack.Screen name='dialogue_01' />
+            <Stack.Screen name='dialogue_01' options={{ animation: 'fade_from_bottom' }} />
         </Stack>
     );
 }
