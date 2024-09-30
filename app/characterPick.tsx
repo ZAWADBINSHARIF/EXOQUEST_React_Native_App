@@ -50,7 +50,7 @@ const characterPick = () => {
                     <View className='flex-row space-x-2'>
                         <Text className='text-white/80 font-[SpaceMono]'>Enter your name: </Text>
                         <View className='shadow-lg'>
-                            <TextInput className='bg-white w-32 rounded-lg px-2 font-[SpaceMono ]'
+                            <TextInput className='bg-white w-32 rounded-lg px-2 font-[SpaceMono]'
                                 value={username}
                                 onChangeText={setUsername}
                             />

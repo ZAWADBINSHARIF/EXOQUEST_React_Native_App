@@ -6,6 +6,7 @@ import BackButton from '@/components/BackButton';
 import { Entypo } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import useGlobalContext from '@/hooks/useGlobalContext';
+import CustomButton from '@/components/CustomButton';
 
 
 const fastFact = () => {
@@ -110,13 +111,11 @@ const fastFact = () => {
                 </View>
 
                 <View>
-                    <TouchableOpacity
-                        className='bg-[#FF8403] px-4 py-2 rounded-lg shadow-lg shadow-slate-500 flex-row justify-center items-center'
+                    <CustomButton
+                        title='NEXT'
                         onPress={() => username && selectedCharacter ? router.push("/(menu)") : router.push("/characterPick")}
-                    >
-                        <Text className='font-bold text-zinc-950 text-2xl text-center mx-2'>NEXT</Text>
-                        <Entypo name="chevron-with-circle-right" size={24} color="black" />
-                    </TouchableOpacity>
+                        rightIcon={<Entypo name="chevron-with-circle-right" size={24} color="black" />}
+                    />
                 </View>
 
             </View>

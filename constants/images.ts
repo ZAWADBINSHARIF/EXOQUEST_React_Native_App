@@ -5,8 +5,14 @@ const imgs = {
     planet_01: require("@/assets/imgs/planet_01.png"),
     boy_frame: require("@/assets/imgs/boy_frame.png"),
     girl_frame: require("@/assets/imgs/girl_frame.png"),
-    sky_bg: require("@/assets/imgs/sky_bg.png")
-
+    menu_bg: require("@/assets/imgs/menu_bg.png"),
+    level_01_bg_01: require("@/assets/imgs/level_01_bg_01.jpg"),
+    level_01_bg_02: require("@/assets/imgs/level_01_bg_02.jpg"),
+    GamePlay: require("@/assets/imgs/GamePlay.png"),
+    GalacticFinder: require("@/assets/imgs/GalacticFinder.png"),
+    GalacticGateWay: require("@/assets/imgs/GalacticGateWay.png"),
+    GalacticGenesis: require("@/assets/imgs/GalacticGenesis.png"),
+    Statistics: require("@/assets/imgs/Statistics.png"),
 };
 
 export default imgs;

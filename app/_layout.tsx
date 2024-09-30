@@ -17,7 +17,8 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
-      // router.push("(menu)");
+      router.push("/(level)/(proxima_centauri_b)/dialogue_01");
+      // router.push("/fastFact");
 
     }
   }, [loaded]);
