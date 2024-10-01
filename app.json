@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.zawadbinsharif.ExoQuest"
     },
     "web": {
       "bundler": "metro",
@@ -38,6 +39,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a490279a-ee26-4f82-a9f8-36ee23ff5570"
+      }
     }
   }
 }
