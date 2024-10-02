@@ -18,7 +18,7 @@ export default function RootLayout() {
     if (loaded) {
       SplashScreen.hideAsync();
       router.push("/(level)/(proxima_centauri_b)/dialogue_01");
-      // router.push("/fastFact");
+      // router.push("/(level)/");
 
     }
   }, [loaded]);

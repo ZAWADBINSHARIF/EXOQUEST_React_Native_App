@@ -14,6 +14,7 @@ const imgs: imgType = {
     boy_frame: require("@/assets/imgs/boy_frame.png"),
     girl_frame: require("@/assets/imgs/girl_frame.png"),
     master: require("@/assets/imgs/master.png"),
+    fuel: require("@/assets/imgs/fuel.png"),
     menu_bg: require("@/assets/imgs/menu_bg.png"),
     level_01_bg_01: require("@/assets/imgs/level_01_bg_01.jpg"),
     level_01_bg_02: require("@/assets/imgs/level_01_bg_02.jpg"),
