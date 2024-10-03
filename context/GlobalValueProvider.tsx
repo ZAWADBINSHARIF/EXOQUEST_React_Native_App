@@ -7,6 +7,10 @@ export interface GlobalValues {
     setUsername: React.Dispatch<React.SetStateAction<string>>;
     selectedCharacter: string;
     setSelectedCharacter: React.Dispatch<React.SetStateAction<string>>;
+    fuel: number,
+    setFuel: React.Dispatch<React.SetStateAction<number>>;
+    point: number,
+    setPoint: React.Dispatch<React.SetStateAction<number>>;
 }
 
 
@@ -19,8 +23,21 @@ const GlobalValueProvider = ({ children }: { children: React.ReactNode; }) => {
 
     const [username, setUsername] = useState("");
     const [selectedCharacter, setSelectedCharacter] = useState("");
+    const [fuel, setFuel] = useState<number>(-1);
+    const [point, setPoint] = useState<number>(0);
 
 
+    useEffect(() => {
+        if (fuel >= 0) {
+            setItem("fuel", fuel.toString());
+        }
+    }, [fuel]);
+
+    useEffect(() => {
+        if (point > 0) {
+            setItem('point', point.toString());
+        }
+    }, [point]);
 
     useEffect(() => {
 
@@ -37,10 +54,19 @@ const GlobalValueProvider = ({ children }: { children: React.ReactNode; }) => {
         const setValuesFromLocalStorage = async () => {
             const name = await getItem('username');
             const character = await getItem('selectedCharacter');
+            const fuel = await getItem("fuel");
+            const point = await getItem("point");
 
             if (name && character) {
                 setUsername(name);
                 setSelectedCharacter(character);
+            }
+
+            if (fuel) {
+                setFuel(parseInt(fuel));
+            }
+            if (point) {
+                setPoint(parseInt(point));
             }
         };
 
@@ -53,7 +79,11 @@ const GlobalValueProvider = ({ children }: { children: React.ReactNode; }) => {
             username,
             setUsername,
             selectedCharacter,
-            setSelectedCharacter
+            setSelectedCharacter,
+            setFuel,
+            fuel,
+            point,
+            setPoint
         }}>
             {children}
         </GlobalContext.Provider>

@@ -1,20 +1,40 @@
-import { View, Text, ImageBackground, Image, Pressable, TouchableOpacity } from 'react-native';
+import { View, Text, ImageBackground, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import imgs from '@/constants/images';
 import useGlobalContext from '@/hooks/useGlobalContext';
 import Checkbox from 'expo-checkbox';
 import BackButton from '@/components/BackButton';
-import Animated, { BounceInLeft, FadeInDown, RollInRight } from 'react-native-reanimated';
+import Animated, { BounceInLeft, FadeInRight, FadeOutRight, RollInRight } from 'react-native-reanimated';
+import * as Haptics from 'expo-haptics';
+import { router } from 'expo-router';
+import PointAndFuelView from '@/components/PointAndFuelView';
 
 const quiz = () => {
 
-    const { selectedCharacter } = useGlobalContext();
-
+    const { selectedCharacter, fuel, setFuel, setPoint } = useGlobalContext();
+    console.log(fuel);
     const quiz_1_question = ["Proxima Centauri Cn", "Alpha Centauri Cb", "Beta Centauri"];
     const quiz_2_question = ["Approximately 234 K", "Approximately 112 K", "Approximately 2206 K"];
 
+    const quiz_1_answare = "Alpha Centauri Cb";
+    const quiz_2_answare = "Approximately 234 K";
+
     const [quiz_1, set_quiz_1] = useState('');
     const [quiz_2, set_quiz_2] = useState('');
+
+    const handleSubmitQuiz = () => {
+        if (!quiz_1 && !quiz_2)
+            return;
+
+        if (quiz_1 !== quiz_1_answare || quiz_2 !== quiz_2_answare) {
+            if (fuel > 0)
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+            setFuel(prev => --prev);
+        } else {
+            setPoint(prev => prev += 100);
+            router.push("/(level)/(proxima_centauri_b)/rewardPoint");
+        }
+    };
 
     return (
         <ImageBackground
@@ -41,14 +61,7 @@ const quiz = () => {
             <View className='absolute justify-end items-center w-full'>
                 <Text className='text-3xl font-[SpicyRice] text-center top-8 uppercase text-white self-center'>Quiz</Text>
 
-                <View className='items-center justify-center flex-row self-end absolute right-10 top-5 gap-3'>
-                    <Text className='text-lg font-bold text-center uppercase text-white'>Points: 0</Text>
-                    <View className='flex-row'>
-                        <Image source={imgs.fuel} />
-                        <Image source={imgs.fuel} />
-                        <Image source={imgs.fuel} />
-                    </View>
-                </View>
+                <PointAndFuelView />
             </View>
 
 
@@ -74,9 +87,10 @@ const quiz = () => {
                         className='justify-evenly flex-1'
                     >
 
-                        {quiz_1_question.map((item) => {
+                        {quiz_1_question.map((item, index) => {
                             return (
                                 <View
+                                    key={index}
                                     className='flex-row space-x-5 items-center pl-5'
                                 >
                                     <Checkbox
@@ -114,9 +128,10 @@ const quiz = () => {
                         className='justify-evenly flex-1'
                     >
 
-                        {quiz_2_question.map((item) => {
+                        {quiz_2_question.map((item, index) => {
                             return (
                                 <View
+                                    key={index}
                                     className='flex-row space-x-5 items-center pl-5'
                                 >
                                     <Checkbox
@@ -140,7 +155,9 @@ const quiz = () => {
                 <Animated.View
                     entering={RollInRight.springify()}
                     className='absolute bg-green-700 px-3 py-2 rounded-xl shadow-xl bottom-0'>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={handleSubmitQuiz}
+                    >
                         <Text className='text-2xl text-white uppercase font-semibold'>Submit</Text>
                     </TouchableOpacity>
                 </Animated.View>

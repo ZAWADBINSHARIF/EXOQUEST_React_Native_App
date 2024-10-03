@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         minWidth: 60,
         marginBottom: 10,
-        borderWidth: 2,
+        // borderWidth: 2,
         borderColor: 'black'
     },
     speechText: {
@@ -41,23 +41,33 @@ const styles = StyleSheet.create({
         // fontWeight: 'bold'
     },
     leftArrow: {
-        position: "absolute",
-        backgroundColor: "white",
-        width: 30,
-        height: 35,
-        borderBottomRightRadius: 50,
-        left: 0,
-        bottom: -25,
-        // zIndex: -1
+        position: 'absolute',
+        width: 0,
+        height: 0,
+        backgroundColor: "transparent",
+        borderStyle: "solid",
+        borderLeftWidth: 23,
+        borderRightWidth: 23,
+        borderBottomWidth: 46,
+        borderLeftColor: "white",
+        borderRightColor: "transparent",
+        borderBottomColor: "transparent",
+        bottom: -35,
+        left: 0
     },
     rightArrow: {
-        position: "absolute",
-        backgroundColor: "white",
-        width: 30,
-        height: 35,
-        borderBottomLeftRadius: 50,
-        right: 0,
-        bottom: -25,
-        // zIndex: -1
+        position: 'absolute',
+        width: 0,
+        height: 0,
+        backgroundColor: "transparent",
+        borderStyle: "solid",
+        borderLeftWidth: 23,
+        borderRightWidth: 23,
+        borderBottomWidth: 46,
+        borderLeftColor: "transparent",
+        borderRightColor: "white",
+        borderBottomColor: "transparent",
+        bottom: -35,
+        right: 0
     }
 });

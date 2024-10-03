@@ -12,6 +12,8 @@ export default function layout() {
             <Stack.Screen name='index' />
             <Stack.Screen name='dialogue_01' options={{ animation: 'fade_from_bottom' }} />
             <Stack.Screen name='quiz' />
+            <Stack.Screen name='rewardPoint' />
+            <Stack.Screen name='galacticKeyReward' />
         </Stack>
     );
 }
