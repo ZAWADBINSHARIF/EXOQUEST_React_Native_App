@@ -54,7 +54,7 @@ const GlobalValueProvider = ({ children }: { children: React.ReactNode; }) => {
         const setValuesFromLocalStorage = async () => {
             const name = await getItem('username');
             const character = await getItem('selectedCharacter');
-            const fuel = await getItem("fuel");
+            const fuel_data = await getItem("fuel");
             const point = await getItem("point");
 
             if (name && character) {
@@ -62,8 +62,11 @@ const GlobalValueProvider = ({ children }: { children: React.ReactNode; }) => {
                 setSelectedCharacter(character);
             }
 
-            if (fuel) {
-                setFuel(parseInt(fuel));
+            if (fuel_data) {
+                setFuel(parseInt(fuel_data));
+            } else {
+                console.log("ok");
+                setFuel(3);
             }
             if (point) {
                 setPoint(parseInt(point));

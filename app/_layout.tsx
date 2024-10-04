@@ -17,8 +17,8 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
-      router.push("/(level)/(proxima_centauri_b)/galacticKeyReward");
-      // router.push("/(level)/");
+      // router.push("/fuelRefillWarning");
+      // router.push("/(level)/(proxima_centauri_b)/quiz");
 
     }
   }, [loaded]);
@@ -48,6 +48,7 @@ function RootLayoutNav() {
       <Stack.Screen name="web" />
       <Stack.Screen name="characterPick" />
       <Stack.Screen name='(menu)' />
+      <Stack.Screen name='fuelRefillWarning' />
     </Stack>
   );
 }

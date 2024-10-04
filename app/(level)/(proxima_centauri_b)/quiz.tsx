@@ -1,5 +1,5 @@
 import { View, Text, ImageBackground, Image, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import imgs from '@/constants/images';
 import useGlobalContext from '@/hooks/useGlobalContext';
 import Checkbox from 'expo-checkbox';
@@ -23,18 +23,29 @@ const quiz = () => {
     const [quiz_2, set_quiz_2] = useState('');
 
     const handleSubmitQuiz = () => {
-        if (!quiz_1 && !quiz_2)
+        if (!quiz_1 || !quiz_2)
             return;
 
         if (quiz_1 !== quiz_1_answare || quiz_2 !== quiz_2_answare) {
-            if (fuel > 0)
+            if (fuel <= 0) {
+                router.push("/fuelRefillWarning");
+            }
+            if (fuel > 0) {
                 Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
-            setFuel(prev => --prev);
+                setFuel(prev => --prev);
+            }
         } else {
             setPoint(prev => prev += 100);
             router.push("/(level)/(proxima_centauri_b)/rewardPoint");
         }
     };
+
+
+    useEffect(() => {
+        if (fuel <= 0) {
+            router.push("/fuelRefillWarning");
+        }
+    }, [fuel]);
 
     return (
         <ImageBackground

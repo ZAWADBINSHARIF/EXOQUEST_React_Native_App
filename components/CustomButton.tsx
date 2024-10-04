@@ -16,7 +16,7 @@ const CustomButton = ({ onPress, rightIcon, title, style }: Props) => {
             style={style}
         >
             <TouchableOpacity
-                className='bg-[#FF8403] px-4 py-2 rounded-lg shadow-lg shadow-slate-500 flex-row justify-center items-center'
+                className='bg-[#FF8403] px-3 py-2 rounded-lg shadow-lg shadow-slate-500 flex-row justify-center items-center'
                 onPress={onPress}
             >
                 <Text className='font-bold text-zinc-950 text-2xl text-center mx-2'>{title}</Text>

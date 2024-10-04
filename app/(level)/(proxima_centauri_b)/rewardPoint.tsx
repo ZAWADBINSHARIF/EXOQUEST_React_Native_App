@@ -6,6 +6,7 @@ import Animated, { BounceInLeft, BounceInRight } from 'react-native-reanimated';
 import useGlobalContext from '@/hooks/useGlobalContext';
 import CustomButton from '@/components/CustomButton';
 import { router } from 'expo-router';
+import BackButton from '@/components/BackButton';
 
 const rewardPoint = () => {
 
