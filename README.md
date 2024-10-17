@@ -1,7 +1,8 @@
 # App Prototype Link:
-[ExoQuest's Figma prototype: click here to explore](https://www.figma.com/proto/2TWYlFuRP2FfQS15xxpjfS/ExoQuest)
+> [ExoQuest's Figma prototype: click here to explore](https://www.figma.com/proto/2TWYlFuRP2FfQS15xxpjfS/ExoQuest)
 
-
+## App Video
+![Exoquest](./github/EXOQUEST.gif)
 
 
 # Welcome to your Expo app 👋
